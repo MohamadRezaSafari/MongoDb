@@ -9,10 +9,10 @@ namespace MongoDb.Services
     {
         private readonly IMongoCollection<Book> _books;
 
-        public BookService(IBookstoreDatabaseSettings settings)
+        public BookService()
         {
-            var client = new MongoClient(settings.ConnectionString);
-            var database = client.GetDatabase(settings.DatabaseName);
+            var client = new MongoClient("mongodb://localhost:27017");
+            var database = client.GetDatabase("BookstoreDb");
 
             _books = database.GetCollection<Book>(settings.BooksCollectionName);
         }
@@ -37,5 +37,22 @@ namespace MongoDb.Services
 
         public void Remove(string id) =>
             _books.DeleteOne(book => book.Id == id);
+    }
+    
+    
+    
+    public class Book
+    {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
+
+        public string BookName { get; set; }
+
+        public decimal Price { get; set; }
+
+        public string Category { get; set; }
+
+        public string Author { get; set; }
     }
 }
