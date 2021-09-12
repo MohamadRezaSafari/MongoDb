@@ -32,7 +32,6 @@ namespace Mongo
             var setting = new MongoClientSettings()
             {
                 Server = new MongoServerAddress("mongodb:localhost:27017"),
-                //UseSsl = false
             };
 
             return new MongoClient(setting);

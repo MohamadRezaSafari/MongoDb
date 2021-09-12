@@ -19,7 +19,6 @@ namespace Mongo
         public string DatabaseList()
         {
             var result = mongoClient.ListDatabaseNames().ToList();
-
             return string.Join(',', result);
         }
 

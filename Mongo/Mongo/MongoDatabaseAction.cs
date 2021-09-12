@@ -20,7 +20,6 @@ namespace Mongo
         public string DatabaseList()
         {
             var result = mongoDatabase.ListCollectionNames().ToList();
-
             return string.Join(',', result);
         }
 
