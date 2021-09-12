@@ -33,7 +33,6 @@ namespace Mongo
             {
                 Server = new MongoServerAddress("mongodb:localhost:27017"),
             };
-
             return new MongoClient(setting);
         }
     }

@@ -25,7 +25,6 @@ namespace Mongo
         public bool DropDatabase(string dbName)
         {
             mongoClient.DropDatabase(dbName);
-
             return true;
         }
     }
